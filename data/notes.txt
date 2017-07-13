@@ -1,0 +1,7 @@
+id of individual
+id of partner
+claims of attribute values (attr1_1)
+beliefs of same sex's attribute values (attr4_1)
+beliefs of opp sex's attribute values (attr2_1)
+percieved attributes of partner
+decision

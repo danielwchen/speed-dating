@@ -1,0 +1,105 @@
+
+/* YOUR CSS STYLES */
+body {
+    display: block;
+    -webkit-background-size: cover;
+    -moz-background-size: cover;
+    -o-background-size: cover;
+    background-size: cover;
+    font-family: "Mercury Text G1 A","Mercury Text G1 B","Georgia","Times New Roman","Times",sans-serif;
+    background-color: #e3eaec;
+    padding-left: 5%;
+    padding-right: 5%;
+    padding-bottom: 5%;
+}
+
+p {
+    align-content: center;
+}
+
+.ack {
+    font-style: italic;
+}
+
+.r-arrow {
+    font-size: 10em;
+    color: orange;
+    position: fixed;
+    display: inline-block;
+}
+.l-arrow {
+    font-size: 10em;
+    color: orange;
+    position: fixed;
+}
+
+.story-text {
+    padding: 15px;
+    color:black;
+    font-size: 2em;
+    text-align: center;
+}
+
+.congress-label {
+    font-size: 25px;
+    font-weight: bolder;
+    /*fill-opacity: .5;*/
+}
+
+.congress-title {
+    font-size: 35px;
+    font-weight: bolder;
+    /*fill-opacity: .5;*/
+}
+
+.repLabels, .senLabels {
+    font-weight: bold;
+}
+#state-name, #congress-name {
+    color: red;
+    font-size: 30px;
+    font-weight: bolder;
+}
+
+#title {
+    font-size: 4em;
+    text-align: center;
+    padding-top: 70px;
+}
+
+.top-bar {
+    opacity: 1;
+    background-color: white;
+    padding-bottom: 10px;
+}
+
+.spacer{
+    padding:20px;
+    text-align: center;
+}
+
+#boring-chart {
+    margin-left:15%;
+    margin-top:20px;
+    border: solid;
+    padding:10px;
+    border-radius: 25px;
+}
+.brightness {
+    background-color: #268ede;
+    display: inline-block;
+
+}
+.brightness img:hover {
+    opacity: .7;
+}
+
+svg text {
+    -webkit-user-select: none;
+    -moz-user-select: none;
+    -ms-user-select: none;
+    user-select: none;
+}
+svg text::selection {
+    background: none;
+}

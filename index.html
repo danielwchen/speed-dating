@@ -1,0 +1,37 @@
+<!doctype html>
+<html>
+<head>
+    <meta charset="utf-8">
+    <meta name="description" content="">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>Adjective Wheel</title>
+
+    <link rel="stylesheet" href="css/bootstrap.min.css">
+    <link rel="stylesheet" href="css/style.css">
+</head>
+<body>
+
+<div id="title">Adjective Wheel</div><br>
+
+<p>This circular diagram, <a href="http://mentalfloss.com/article/64182/improve-your-vocabulary-wheel-feelings">
+    attributed to English teacher Kaitlin Robbs and obtained from Mental Floss</a>, is a map that can be used to find
+    perfect word for a emotion.</p>
+<p>I decided to program a quick sunburst version of the wheel in D3. Click on any segment of the wheel to zoom in
+    and see its children words. Click the middle to zoom back out to the previous view.</p>
+<div id="word-wheel" align="center"></div>
+<p>To produce this diagram, I learned from previous work by <a href="https://bl.ocks.org/mbostock/4348373">Mike Bostock</a> and <a href="http://bl.ocks.org/metmajer/5480307">
+    Martin Etmajer</a>.</p>
+
+<!-- Load JS libraries -->
+<script src="js/libs/jquery.min.js"></script>
+<script src="js/libs/bootstrap.min.js"></script>
+<script src="js/libs/d3.min.js"></script>
+
+<!-- electoral map and congress visualization -->
+<script src="js/main.js"></script>
+
+
+
+
+</body>
+</html>
