@@ -4,23 +4,41 @@
     <meta charset="utf-8">
     <meta name="description" content="">
     <meta name="viewport" content="width=device-width, initial-scale=1">
-    <title>Adjective Wheel</title>
+    <title>What are people attracted to?</title>
 
     <link rel="stylesheet" href="css/bootstrap.min.css">
     <link rel="stylesheet" href="css/style.css">
 </head>
 <body>
 
-<div id="title">Adjective Wheel</div><br>
+<div id="title">What are people attracted to?</div><br>
 
-<p>This circular diagram, <a href="http://mentalfloss.com/article/64182/improve-your-vocabulary-wheel-feelings">
-    attributed to English teacher Kaitlin Robbs and obtained from Mental Floss</a>, is a map that can be used to find
-    perfect word for a emotion.</p>
-<p>I decided to program a quick sunburst version of the wheel in D3. Click on any segment of the wheel to zoom in
-    and see its children words. Click the middle to zoom back out to the previous view.</p>
-<div id="word-wheel" align="center"></div>
-<p>To produce this diagram, I learned from previous work by <a href="https://bl.ocks.org/mbostock/4348373">Mike Bostock</a> and <a href="http://bl.ocks.org/metmajer/5480307">
-    Martin Etmajer</a>.</p>
+<p>Recently, Seth Stephens-Davidowitz, author of Everybody Lies, told
+    <a href="https://www.vox.com/conversations/2017/6/27/15873072/google-porn-addiction-america-everybody-lies">Vox in
+    an interview</a> that, according to data from porn searches online, people generally hide what they're truly
+    attracted to and instead date people that they think other people are attracted to as a means of improving
+    their social standing.</p>
+<p>I wanted to see if I could support this hypothesis using data from a speed dating experiment carried out by
+    <a href="https://www.kaggle.com/annavictoria/speed-dating-experiment">Ray Fisman and Sheena Iyengar from Columbia
+    Business School and posted on kaggle.com</a>. Before the experiment, participants answered their own preferences
+    for 6 attributes when evaluating compatibility with a person of the opposite sex (all relationships examined in
+    this experiment were heterosexual), as well as how they think other members of their sex evaluate and how they
+    think members of the other sex evaluate potential partner. Then, during the speed dating experiment, each person
+    rated their partner on each of the 6 attributes and indicated their level of attraction.
+</p>
+<div id="visualization" align="center">
+    <div id="chart1" class="col-md-6"><h1>What Women Want</h1></div>
+    <div id="chart2" class="col-md-6"><h1>What Men Want</h1></div>
+</div>
+<p>From my analysis of the experiment, it appears that a person's selections in potential dating partners is far
+    different from their stated preferences. Regardless of gender, on average, a person's perception of the preferences
+    of other members of their gender is more accurate indicator of their true dating preferences.</p>
+<p>Several other surprising insights appear in the results. Shared interests played a much larger part in attraction
+    than the participants predicted. Intelligence and sincerity were both much less impactful than participants
+    expected.</p>
+<p>To produce this diagram, I learned from previous work by <a href="http://bl.ocks.org/nbremer/6506614">Nadieh
+    Bremer</a>.
+</p>
 
 <!-- Load JS libraries -->
 <script src="js/libs/jquery.min.js"></script>
@@ -28,6 +46,7 @@
 <script src="js/libs/d3.min.js"></script>
 
 <!-- electoral map and congress visualization -->
+<script src="js/radarChart2.js"></script>
 <script src="js/main.js"></script>
 
 

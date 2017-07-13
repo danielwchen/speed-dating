@@ -1,108 +1,192 @@
-// Relies heavily on work from http://www.flavoreddelights.com/wp-content/uploads/2010/04/beer-flavor-wheel.jpg and http://bl.ocks.org/metmajer/5480307
+var w = 300,
+    h = 300;
 
-var width = 900,
-    height = 1000,
-    radius = Math.min(width, height) / 2;
+var colorscale = d3.scale.category10();
 
-var x = d3.scale.linear()
-    .range([0, 2 * Math.PI]);
+//Legend titles
+var LegendOptions_f = ['Stated Preference','Perceived Preference of Society','True Preference'];
+var LegendOptions_m = ['Stated Preference','Perceived Preference of Society','True Preference'];
 
-var y = d3.scale.linear()
-    .range([0, radius]);
+//Data
+var d_f = [
+    [//women self
+        {axis:"Attractiveness",value:.18020372},
+        {axis:"Sincerity",value:.1822223},
+        {axis:"Intelligence",value:.20971004},
+        {axis:"Shared Interests",value:.12650632},
+        {axis:"Fun",value:.17299108},
+        {axis:"Ambition",value:.12818476}
+    ],
+    // [//women men look for
+    //     {axis:"Attractiveness",value:.35600632},
+    //     {axis:"Sincerity",value:.11284535},
+    //     {axis:"Intelligence",value:.12478439},
+    //     {axis:"Shared Interests",value:.12626766},
+    //     {axis:"Fun",value:.19051636},
+    //     {axis:"Ambition",value:.09114387}
+    // ],
+    [//women other women look for
+        {axis:"Attractiveness",value:0.2950641},
+        {axis:"Sincerity",value:0.12615385},
+        {axis:"Intelligence",value:0.14846154},
+        {axis:"Shared Interests",value:0.12397436},
+        {axis:"Fun",value:0.17301282},
+        {axis:"Ambition",value:0.13314103}
+    ],[//women true preference
+        {axis:"Attractiveness",value:0.29136048},
+        {axis:"Sincerity",value:0.062738552},
+        {axis:"Intelligence",value:0.082452089},
+        {axis:"Shared Interests",value:0.244857297},
+        {axis:"Fun",value:0.261661364},
+        {axis:"Ambition",value:0.056930219}
+    ]
+];
 
-var color = d3.scale.category20c();
+var d_m = [
+    [//men self
+        {axis:"Attractiveness",value:0.272488},
+        {axis:"Sincerity",value:0.163796},
+        {axis:"Intelligence",value:0.19387418},
+        {axis:"Shared Interests",value:0.109024},
+        {axis:"Fun",value:0.17536836},
+        {axis:"Ambition",value:0.08759782}
+    ],
+    // [//men women look for
+    //     {axis:"Attractiveness",value:0.25012218},
+    //     {axis:"Sincerity",value:0.15126255},
+    //     {axis:"Intelligence",value:0.15126255},
+    //     {axis:"Shared Interests",value:0.11123745},
+    //     {axis:"Fun",value:0.18015164},
+    //     {axis:"Ambition",value:0.14305273}
+    // ],
+    [//men other men look for
+        {axis:"Attractiveness",value:0.3448125},
+        {axis:"Sincerity",value:0.12075},
+        {axis:"Intelligence",value:0.138625},
+        {axis:"Shared Interests",value:0.12175},
+        {axis:"Fun",value:0.1875625},
+        {axis:"Ambition",value:0.0841875}
+    ],[//men true preference
+        {axis:"Attractiveness",value:0.361513249},
+        {axis:"Sincerity",value:0.040552217},
+        {axis:"Intelligence",value:0.048031608},
+        {axis:"Shared Interests",value:0.232961937},
+        {axis:"Fun",value:0.229650376},
+        {axis:"Ambition",value:0.087290613}
+    ]
+];
 
-var svg = d3.select("#word-wheel").append("svg")
-    .attr("width", width)
-    .attr("height", height)
-    .append("g")
-    .attr("transform", "translate(" + width / 2 + "," + (height / 2 + 10) + ")");
-
-var partition = d3.layout.partition()
-    .value(function(d) { return d.size; });
-
-var arc = d3.svg.arc()
-    .startAngle(function(d) { return Math.max(0, Math.min(2 * Math.PI, x(d.x))); })
-    .endAngle(function(d) { return Math.max(0, Math.min(2 * Math.PI, x(d.x + d.dx))); })
-    .innerRadius(function(d) { return Math.max(0, y(d.y)); })
-    .outerRadius(function(d) { return Math.max(0, y(d.y + d.dy)); });
-
-d3.json("data/words.json", function(error, root) {
-    var g = svg.selectAll("g")
-        .data(partition.nodes(root))
-        .enter().append("g");
-
-    var path = g.append("path")
-        .attr("d", arc)
-        .attr("stroke", "white")
-        .attr("stroke-width", 2)
-        .style("fill", function(d) { return color((d.children ? d : d.parent).word); })
-        .on("click", click)
-
-    var text = g.append("text")
-        .attr("transform", function(d) { return "rotate(" + computeTextRotation(d) + ")"; })
-        .attr("x", function(d) { return y(d.y); })
-        .attr("dx", "6") // margin
-        .attr("dy", ".35em") // vertical-align
-        .text(function(d) { return d.word; })
-        .on("click", click);
-
-    function mouseover(d) {
-
-        var sequenceArray = getAncestors(d);
-
-        // Fade all the segments.
-        d3.selectAll("path")
-            .style("opacity", 0.3);
-
-        // Then highlight only those that are an ancestor of the current segment.
-        vis.selectAll("path")
-            .filter(function(node) {
-                return (sequenceArray.indexOf(node) >= 0);
-            })
-            .style("opacity", 1);
-    }
-
-    function click(d) {
-        // fade out all text elements
-        text.transition()
-            .duration(100)
-            .attr("opacity", 0);
-        path.transition()
-            .duration(750)
-            .attrTween("d", arcTween(d))
-            .each("end", function(e, i) {
-                // check if the animated element's data e lies within the visible angle span given in d
-                if (e.x >= d.x && e.x < (d.x + d.dx)) {
-                    // get a selection of the associated text element
-                    var arcText = d3.select(this.parentNode).select("text");
-                    var endAngle;
-                    // fade in the text element and recalculate positions
-                    arcText
-                        .attr("opacity", 1)
-                        .attr("transform", function() {
-                            endAngle = computeTextRotation(e);
-                            return "rotate(" + endAngle + ")";
-                        })
-                        .attr("x", function(d) { return y(d.y); });
-                }
-            });
-    }
-});
-
-d3.select(self.frameElement).style("height", height + "px");
-// Interpolate the scales!
-function arcTween(d) {
-    var xd = d3.interpolate(x.domain(), [d.x, d.x + d.dx]),
-        yd = d3.interpolate(y.domain(), [d.y, 1]),
-        yr = d3.interpolate(y.range(), [d.y ? 20 : 0, radius]);
-    return function(d, i) {
-        return i
-            ? function(t) { return arc(d); }
-            : function(t) { x.domain(xd(t)); y.domain(yd(t)).range(yr(t)); return arc(d); };
-    };
+//Options for the Radar chart, other than default
+var mycfg = {
+    w: w,
+    h: h,
+    maxValue: 0.4,
+    levels: 4,
+    ExtraWidthX: 300
 }
 
-function computeTextRotation(d) {
-    return (x(d.x + d.dx / 2) - Math.PI / 2) / Math.PI * 180;
-}
+//Call function to draw the Radar chart
+//Will expect that data is in %'s
+RadarChart.draw("#chart1", d_f, mycfg);
+
+////////////////////////////////////////////
+/////////// Initiate legend ////////////////
+////////////////////////////////////////////
+
+var svg = d3.select('#visualization')
+    .selectAll('svg')
+    .append('svg')
+    .attr("width", w+300)
+    .attr("height", h)
+
+//Create the title for the legend
+var text = svg.append("text")
+    .attr("class", "title")
+    .attr('transform', 'translate(90,0)')
+    .attr("x", w - 70)
+    .attr("y", 10)
+    .attr("font-size", "12px")
+    .attr("fill", "#404040")
+    .text("% importance of attribute in potential partner");
+
+//Initiate Legend
+var legend = svg.append("g")
+        .attr("class", "legend")
+        .attr("height", 100)
+        .attr("width", 200)
+        .attr('transform', 'translate(90,20)')
+    ;
+//Create colour squares
+legend.selectAll('rect')
+    .data(LegendOptions_f)
+    .enter()
+    .append("rect")
+    .attr("x", w - 65)
+    .attr("y", function(d, i){ return i * 20;})
+    .attr("width", 10)
+    .attr("height", 10)
+    .style("fill", function(d, i){ return colorscale(i);})
+;
+//Create text next to squares
+legend.selectAll('text')
+    .data(LegendOptions_f)
+    .enter()
+    .append("text")
+    .attr("x", w - 52)
+    .attr("y", function(d, i){ return i * 20 + 9;})
+    .attr("font-size", "11px")
+    .attr("fill", "#737373")
+    .text(function(d) { return d; })
+;
+
+RadarChart.draw("#chart2", d_m, mycfg);
+
+////////////////////////////////////////////
+/////////// Initiate legend ////////////////
+////////////////////////////////////////////
+
+var svg = d3.select('#visualization')
+    .selectAll('svg')
+    .append('svg')
+    .attr("width", w+300)
+    .attr("height", h)
+
+//Create the title for the legend
+var text = svg.append("text")
+    .attr("class", "title")
+    .attr('transform', 'translate(90,0)')
+    .attr("x", w - 70)
+    .attr("y", 10)
+    .attr("font-size", "12px")
+    .attr("fill", "#404040")
+    .text("% importance of attribute in potential partner");
+
+//Initiate Legend
+var legend = svg.append("g")
+        .attr("class", "legend")
+        .attr("height", 100)
+        .attr("width", 200)
+        .attr('transform', 'translate(90,20)')
+    ;
+//Create colour squares
+legend.selectAll('rect')
+    .data(LegendOptions_m)
+    .enter()
+    .append("rect")
+    .attr("x", w - 65)
+    .attr("y", function(d, i){ return i * 20;})
+    .attr("width", 10)
+    .attr("height", 10)
+    .style("fill", function(d, i){ return colorscale(i);})
+;
+//Create text next to squares
+legend.selectAll('text')
+    .data(LegendOptions_m)
+    .enter()
+    .append("text")
+    .attr("x", w - 52)
+    .attr("y", function(d, i){ return i * 20 + 9;})
+    .attr("font-size", "11px")
+    .attr("fill", "#737373")
+    .text(function(d) { return d; })
+;

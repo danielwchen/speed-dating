@@ -11,15 +11,15 @@
 var RadarChart = {
     draw: function(id, d, options){
         var cfg = {
-            radius: 5,
+            radius: 3,
             w: 600,
             h: 600,
             factor: 1,
             factorLegend: .85,
-            levels: 3,
-            maxValue: 0,
+            levels: 5,
+            maxValue: 0.5,
             radians: 2 * Math.PI,
-            opacityArea: 0.5,
+            opacityArea: 0.3,
             ToRight: 5,
             TranslateX: 80,
             TranslateY: 30,
@@ -53,7 +53,7 @@ var RadarChart = {
         var tooltip;
 
         //Circular segments
-        for(var j=0; j<cfg.levels-1; j++){
+        for(var j=0; j<cfg.levels; j++){
             var levelFactor = cfg.factor*radius*((j+1)/cfg.levels);
             g.selectAll(".levels")
                 .data(allAxis)
@@ -149,7 +149,7 @@ var RadarChart = {
                         .style("fill-opacity", 0.1);
                     g.selectAll(z)
                         .transition(200)
-                        .style("fill-opacity", .7);
+                        .style("fill-opacity", .8);
                 })
                 .on('mouseout', function(){
                     g.selectAll("polygon")
