@@ -1,0 +1,503 @@
+{
+  "word": "",
+  "children": [
+    {
+      "word": "Anger",
+      "children": [
+        {
+          "word": "Hurt",
+          "children": [
+            {
+              "word": "Embarrassed",
+              "size": 10
+            },
+            {
+              "word": "Devastated",
+              "size": 10
+            }
+          ]
+        },
+        {
+          "word": "Threatened",
+          "children": [
+            {
+              "word": "Insecure",
+              "size": 10
+            },
+            {
+              "word": "Jealous",
+              "size": 10
+            }
+          ]
+        },
+        {
+          "word": "Hateful",
+          "children": [
+            {
+              "word": "Resentful",
+              "size": 10
+            },
+            {
+              "word": "Violated",
+              "size": 10
+            }
+          ]
+        },
+        {
+          "word": "Mad",
+          "children": [
+            {
+              "word": "Furious",
+              "size": 10
+            },
+            {
+              "word": "Enraged",
+              "size": 10
+            }
+          ]
+        },
+        {
+          "word": "Aggressive",
+          "children": [
+            {
+              "word": "Provoked",
+              "size": 10
+            },
+            {
+              "word": "Hostile",
+              "size": 10
+            }
+          ]
+        },
+        {
+          "word": "Frustrated",
+          "children": [
+            {
+              "word": "Infuriated",
+              "size": 10
+            },
+            {
+              "word": "Irritated",
+              "size": 10
+            }
+          ]
+        },
+        {
+          "word": "Distant",
+          "children": [
+            {
+              "word": "Withdrawn",
+              "size": 10
+            },
+            {
+              "word": "Suspicious",
+              "size": 10
+            }
+          ]
+        },
+        {
+          "word": "Critical",
+          "children": [
+            {
+              "word": "Skeptical",
+              "size": 10
+            },
+            {
+              "word": "Sarcastic",
+              "size": 10
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "word": "Disgust",
+      "children": [
+        {
+          "word": "Disapproval",
+          "children": [
+            {
+              "word": "Judgmental",
+              "size": 10
+            },
+            {
+              "word": "Loathing",
+              "size": 10
+            }
+          ]
+        },
+        {
+          "word": "Disappointed",
+          "children": [
+            {
+              "word": "Repugnant",
+              "size": 10
+            },
+            {
+              "word": "Revolted",
+              "size": 10
+            }
+          ]
+        },
+        {
+          "word": "Awful",
+          "children": [
+            {
+              "word": "Revulsion",
+              "size": 10
+            },
+            {
+              "word": "Detestable",
+              "size": 10
+            }
+          ]
+        },
+        {
+          "word": "Avoidance",
+          "children": [
+            {
+              "word": "Aversion",
+              "size": 10
+            },
+            {
+              "word": "Hesitant",
+              "size": 10
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "word": "Sad",
+      "children": [
+        {
+          "word": "Guilty",
+          "children": [
+            {
+              "word": "Remorseful",
+              "size": 10
+            },
+            {
+              "word": "Ashamed",
+              "size": 10
+            }
+          ]
+        },
+        {
+          "word": "Abandoned",
+          "children": [
+            {
+              "word": "Ignored",
+              "size": 10
+            },
+            {
+              "word": "Victimized",
+              "size": 10
+            }
+          ]
+        },
+        {
+          "word": "Despair",
+          "children": [
+            {
+              "word": "Powerless",
+              "size": 10
+            },
+            {
+              "word": "Vulnerable",
+              "size": 10
+            }
+          ]
+        },
+        {
+          "word": "Depressed",
+          "children": [
+            {
+              "word": "Inferior",
+              "size": 10
+            },
+            {
+              "word": "Empty",
+              "size": 10
+            }
+          ]
+        },
+        {
+          "word": "Lonely",
+          "children": [
+            {
+              "word": "Abandoned",
+              "size": 10
+            },
+            {
+              "word": "Isolated",
+              "size": 10
+            }
+          ]
+        },
+        {
+          "word": "Bored",
+          "children": [
+            {
+              "word": "Apathetic",
+              "size": 10
+            },
+            {
+              "word": "Indifferent",
+              "size": 10
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "word": "Happy",
+      "children": [
+        {
+          "word": "Optimistic",
+          "children": [
+            {
+              "word": "Inspired",
+              "size": 10
+            },
+            {
+              "word": "Open",
+              "size": 10
+            }
+          ]
+        },
+        {
+          "word": "Intimate",
+          "children": [
+            {
+              "word": "Playful",
+              "size": 10
+            },
+            {
+              "word": "Sensative",
+              "size": 10
+            }
+          ]
+        },
+        {
+          "word": "Peaceful",
+          "children": [
+            {
+              "word": "Hopeful",
+              "size": 10
+            },
+            {
+              "word": "Loving",
+              "size": 10
+            }
+          ]
+        },
+        {
+          "word": "Powerful",
+          "children": [
+            {
+              "word": "Provocative",
+              "size": 10
+            },
+            {
+              "word": "Courageous",
+              "size": 10
+            }
+          ]
+        },
+        {
+          "word": "Accepted",
+          "children": [
+            {
+              "word": "Fulfilled",
+              "size": 10
+            },
+            {
+              "word": "Respected",
+              "size": 10
+            }
+          ]
+        },
+        {
+          "word": "Proud",
+          "children": [
+            {
+              "word": "Confident",
+              "size": 10
+            },
+            {
+              "word": "Important",
+              "size": 10
+            }
+          ]
+        },
+        {
+          "word": "Interested",
+          "children": [
+            {
+              "word": "Inquisitive",
+              "size": 10
+            },
+            {
+              "word": "Amused",
+              "size": 10
+            }
+          ]
+        },
+        {
+          "word": "Joyful",
+          "children": [
+            {
+              "word": "Estatic",
+              "size": 10
+            },
+            {
+              "word": "Liberated",
+              "size": 10
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "word": "Surprise",
+      "children": [
+        {
+          "word": "Excited",
+          "children": [
+            {
+              "word": "Energetic",
+              "size": 10
+            },
+            {
+              "word": "Eager",
+              "size": 10
+            }
+          ]
+        },
+        {
+          "word": "Amazed",
+          "children": [
+            {
+              "word": "Awe",
+              "size": 10
+            },
+            {
+              "word": "Astonished",
+              "size": 10
+            }
+          ]
+        },
+        {
+          "word": "Confused",
+          "children": [
+            {
+              "word": "Perplexed",
+              "size": 10
+            },
+            {
+              "word": "Disillusioned",
+              "size": 10
+            }
+          ]
+        },
+        {
+          "word": "Startled",
+          "children": [
+            {
+              "word": "Dismayed",
+              "size": 10
+            },
+            {
+              "word": "Shocked",
+              "size": 10
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "word": "Fear",
+      "children": [
+        {
+          "word": "Scared",
+          "children": [
+            {
+              "word": "Terrified",
+              "size": 10
+            },
+            {
+              "word": "Frightened",
+              "size": 10
+            }
+          ]
+        },
+        {
+          "word": "Anxious",
+          "children": [
+            {
+              "word": "Overwhelmed",
+              "size": 10
+            },
+            {
+              "word": "Worried",
+              "size": 10
+            }
+          ]
+        },
+        {
+          "word": "Insecure",
+          "children": [
+            {
+              "word": "Inadequate",
+              "size": 10
+            },
+            {
+              "word": "Inferior",
+              "size": 10
+            }
+          ]
+        },
+        {
+          "word": "Submissive",
+          "children": [
+            {
+              "word": "Worthless",
+              "size": 10
+            },
+            {
+              "word": "Insignificant",
+              "size": 10
+            }
+          ]
+        },
+        {
+          "word": "Rejected",
+          "children": [
+            {
+              "word": "Inadequate",
+              "size": 10
+            },
+            {
+              "word": "Alienated",
+              "size": 10
+            }
+          ]
+        },
+        {
+          "word": "Humiliated",
+          "children": [
+            {
+              "word": "Disrespected",
+              "size": 10
+            },
+            {
+              "word": "Ridiculed",
+              "size": 10
+            }
+          ]
+        }
+      ]
+    }
+  ]
+}
